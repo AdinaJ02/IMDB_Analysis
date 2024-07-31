@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDB Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>IMDB Data Analysis</h1>
+        <p>Developed by Adina Jacob</p>
+        <div class="card mb-4">
+            <div class="card-header">
+                Summary
+            </div>
+            <div class="card-body">
+                <p><strong>Total Movies:</strong> {{ analysis.total_movies }}</p>
+                <p><strong>Average Rating:</strong> {{ analysis.average_rating }}%</p>
+                <p><strong>Average Revenue:</strong> {{ analysis.average_revenue }} million</p>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                Total movies in a particular year
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for Year, count in analysis.year_distribution.items %}
+                    <li class="list-group-item"><strong>{{ Year }}:</strong> {{ count }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
